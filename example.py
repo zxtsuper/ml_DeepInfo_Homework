@@ -1,5 +1,8 @@
 import numpy as np
 from utils import  load_data
+from gcn import BatchGCN
+from gat import BatchGAT
+
 """
  |V|: total number of nodes of the social network
  m: the number of instances, each instance is an ego-network of a user samlped from the social network.
@@ -22,12 +25,21 @@ train_graphs, train_inf_features, train_labels, train_vertices= train_data
 valid_graphs, valid_inf_features, valid_labels, valid_vertices= valid_data
 test_graphs, test_inf_features, test_labels, test_vertices= test_data
 
-print(vertex_features.shape)
-print(embeddings.shape)
-print(train_graphs.shape)
-print(train_vertices.shape)
-print(train_inf_features.shape)
-print(train_labels.shape)
+#print(vertex_features.shape)
+#print(embeddings.shape)
+#print(train_graphs.shape)
+#print(train_vertices.shape)
+#print(train_inf_features.shape)
+#print(train_labels.shape)
+
+#modelgat = BatchGAT(embeddings,vertex_features,False,[1433, 8, 7],[2, 16, 16, 2],0.2,False)
+
+modelgcn = BatchGCN(embeddings,vertex_features,False,[1433, 8, 7],[2, 16, 16, 2],0.2,False)
+
+
+
+
+
 
 """
 acquire the corresponding vertex features and embeddings of an instance.
